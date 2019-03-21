@@ -1,39 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    <nav>
+{% extends 'blog/index.html' %}
 
-    </nav>
-    <header>
-      <h1>Coding Journal by Makneta</h1>
-    </header>
+{% block content %}
     <section>
       {% for post in posts %}
       <div class="post">
         <p>published: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
+        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
         <p>{{ post.text|linebreaksbr }}</p>
-        
+
       </div>
 
       {% endfor %}
-      <!-- <p>published: 21.03.2019, 21:40</p>
-      <h2><a href="">My first post</a></h2>
-      <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-        tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p> -->
-    </section>
-    <!-- <section>
-      <p>published: 21.03.2019, 21:49</p>
-      <h2><a href="">My second post</a></h2>
-      <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-        tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    </section> -->
 
-  </body>
-</html>
+    </section>
+
+{% endblock %}
