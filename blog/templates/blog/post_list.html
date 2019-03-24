@@ -4,9 +4,11 @@
     <section>
       {% for post in posts %}
       <div class="post">
+        {% autoescape off %}
         <p>published: {{ post.published_date }}</p>
-        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <h2><a href="{{ post.get_absolute_url }}">{{ post.title|escape|safe }}</a></h2>
+        <p>{{ post.text|linebreaksbr|escape|safe }}</p>
+        {% endautoescape %}
 
       </div>
 

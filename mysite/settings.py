@@ -102,7 +102,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# CKEDITOR CONFIGURATION
 
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CDEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'none',
+        'extraPlugins': ','.join(
+                []),
+        'allowedContent': True
+    }
+}
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
